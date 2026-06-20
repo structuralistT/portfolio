@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Имя Фамилия — Architecture Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Черная плашка для плавной анимации перехода -->
+<div class="page-transition-overlay"></div>
+
+<!-- ===== ХЕДЕР ===== -->
+<header class="header">
+    <div class="container header__inner">
+      <div class="header__contacts-row">
+        <a href="https://github.com/yourusername" target="_blank" class="header__link">GitHub</a>
+        <a href="https://t.me/yourusername" target="_blank" class="header__link">Telegram</a>
+        <a href="mailto:mail@example.com" class="header__link">mail@example.com</a>
+      </div>
+    </div>
+</header>
+  
+<!-- ===== БЛОК A: HERO (светлый) ===== -->
+<section class="hero">
+    <div class="container">
+      <div class="hero__top">
+        <p class="hero__eyebrow">АРХИТЕКТУРА // BIM ИССЛЕДОВАНИЯ</p>
+        <p class="hero__meta">МОСКВА <br> СТУДИЯ // 2026</p>
+      </div>
+  
+      <div class="hero__title">
+        <span class="hero__title-text">ПОРТФОЛИО</span>
+        <span class="hero__subtitle">ИМЯ ФАМИЛИЯ</span>
+      </div>
+    </div>
+</section>
+
+<!-- ===== ПОЛОСКА ФАКТОВ ===== -->
+<section class="facts">
+    <div class="container facts__grid">
+      <div class="facts__item">
+        <span class="facts__value">10+</span>
+        <span class="facts__label">лет практики</span>
+      </div>
+      <div class="facts__item">
+        <span class="facts__value">40+</span>
+        <span class="facts__label">проектов</span>
+      </div>
+      <div class="facts__item">
+        <span class="facts__value">5</span>
+        <span class="facts__label">публикаций</span>
+      </div>
+      <div class="facts__item">
+        <span class="facts__value">3</span>
+        <span class="facts__label">награды</span>
+      </div>
+    </div>
+</section>
+  
+<!-- ===== ОБО МНЕ ===== -->
+<section class="about" id="about">
+    <div class="container about__inner">
+      <h2 class="section-title section-title--light">Обо мне</h2>
+      <p class="about__text">
+        Архитектор. Краткое описание опыта, специализации и подхода к проектированию —
+        2–4 предложения о бэкграунде, образовании и фокусе (жилые, общественные,
+        исследовательские проекты и т.д.).
+      </p>
+      <ul class="about__contacts">
+        <li><a href="mailto:mail@example.com" class="link-underline link-underline--light">mail@example.com</a></li>
+        <li><a href="tel:+70000000000" class="link-underline link-underline--light">+7 000 000-00-00</a></li>
+        <li><a href="#" class="link-underline link-underline--light">Instagram</a></li>
+        <li><a href="#" class="link-underline link-underline--light">Behance</a></li>
+        <li><a href="#" class="link-underline link-underline--light">LinkedIn</a></li>
+      </ul>
+    </div>
+</section>
+
+<!-- ===== СЕТКА ПРОЕКТОВ ===== -->
+<section class="projects" id="projects">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title">Проекты</h2>
+      </div>
+  
+      <div class="projects__grid">
+  
+        <!-- Карточка 1 -->
+        <a href="project1.html" class="project-card">
+          <div class="project-card__image">
+            <img src="projects/main_render.jpg" alt="Название проекта 1" onerror="this.src='https://placehold.co/500x650/e3e3e3/e3e3e3?text=01'">
+          </div>
+          <p class="project-card__caption">01. Название проекта // Revit</p>
+        </a>
+  
+        <!-- Карточка 2 -->
+        <a href="project2.html" class="project-card">
+          <div class="project-card__image">
+            <img src="images/project2.jpg" alt="Название проекта 2" onerror="this.src='https://placehold.co/500x650/e3e3e3/e3e3e3?text=02'">
+          </div>
+          <p class="project-card__caption">02. Название проекта // Rhino</p>
+        </a>
+  
+        <!-- Карточка 3 -->
+        <a href="project3.html" class="project-card">
+          <div class="project-card__image">
+            <img src="images/project3.jpg" alt="Название проекта 3" onerror="this.src='https://placehold.co/500x650/e3e3e3/e3e3e3?text=03'">
+          </div>
+          <p class="project-card__caption">03. Название проекта // Python Automation</p>
+        </a>
+  
+        <!-- Карточка 4 -->
+        <a href="project4.html" class="project-card">
+          <div class="project-card__image">
+            <img src="images/project4.jpg" alt="Название проекта 4" onerror="this.src='https://placehold.co/500x650/e3e3e3/e3e3e3?text=04'">
+          </div>
+          <p class="project-card__caption">04. Название проекта // 3D Print</p>
+        </a>
+  
+      </div>
+    </div>
+</section>
+
+<!-- ===== ЧЕРНЫЙ БЛОК: НАУЧНЫЙ АРХИВ ===== -->
+<section class="archive" id="archive">
+    <div class="container">
+      <div class="section-head">
+        <h2 class="section-title section-title--light">Публикации</h2>
+        <a href="#" class="link-underline link-underline--light">Все статьи →</a>
+      </div>
+  
+      <div class="archive__grid">
+  
+        <article class="archive__card">
+          <img class="archive__thumb" src="https://placehold.co/300x300/1c1c1c/1c1c1c?text=01" alt="">
+          <div class="archive__text">
+            <h3 class="archive__name">Название статьи 01</h3>
+            <p class="archive__meta">ВУЗ / Конференция, 2024</p>
+            <a href="#" class="link-underline link-underline--light">PDF →</a>
+          </div>
+        </article>
+  
+        <article class="archive__card">
+          <img class="archive__thumb" src="https://placehold.co/300x300/1c1c1c/1c1c1c?text=02" alt="">
+          <div class="archive__text">
+            <h3 class="archive__name">Название статьи 02</h3>
+            <p class="archive__meta">ВУЗ / Конференция, 2023</p>
+            <a href="#" class="link-underline link-underline--light">PDF →</a>
+          </div>
+        </article>
+  
+        <article class="archive__card">
+          <img class="archive__thumb" src="https://placehold.co/300x300/1c1c1c/1c1c1c?text=03" alt="">
+          <div class="archive__text">
+            <h3 class="archive__name">Название статьи 03</h3>
+            <p class="archive__meta">ВУЗ / Конференция, 2022</p>
+            <a href="#" class="link-underline link-underline--light">PDF →</a>
+          </div>
+        </article>
+  
+      </div>
+    </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 Фамилия Имя</p>
+  </div>
+</footer>
+
+<!-- Скрипт перенесен в самый низ, внутрь body -->
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('.project-card');
+      const overlay = document.querySelector('.page-transition-overlay');
+  
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetUrl = link.getAttribute('href');
+  
+          overlay.classList.add('is-active');
+  
+          setTimeout(() => {
+            window.location.href = targetUrl;
+          }, 400);
+        });
+      });
+    });
+</script>
+
+</body>
+</html>
