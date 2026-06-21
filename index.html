@@ -17,9 +17,9 @@
 <header class="header">
     <div class="container header__inner">
       <div class="header__contacts-row">
-        <a href="https://github.com/yourusername" target="_blank" class="header__link">GitHub</a>
-        <a href="https://t.me/yourusername" target="_blank" class="header__link">Telegram</a>
-        <a href="mailto:mail@example.com" class="header__link">mail@example.com</a>
+        <a href="https://github.com/structuralistT?tab=repositories" target="_blank" class="header__link">GitHub</a>
+        <a href="https://t.me/Tanyatai" target="_blank" class="header__link">Telegram</a>
+        <a href="mailto:vyatkinatatiana166@gmail.com" class="header__link">vyatkinatatiana166@gmail.com</a>
       </div>
     </div>
 </header>
@@ -28,38 +28,18 @@
 <section class="hero">
     <div class="container">
       <div class="hero__top">
-        <p class="hero__eyebrow">АРХИТЕКТУРА // BIM ИССЛЕДОВАНИЯ</p>
-        <p class="hero__meta">МОСКВА <br> СТУДИЯ // 2026</p>
+        <p class="hero__eyebrow">DEP: ARCHITECTURE // WORKPORTFOLIO.2026</p>
+        <p class="hero__meta">МОСКВА // НИУ МГСУ // 2026</p>
       </div>
   
       <div class="hero__title">
         <span class="hero__title-text">ПОРТФОЛИО</span>
-        <span class="hero__subtitle">ИМЯ ФАМИЛИЯ</span>
+        <span class="hero__subtitle">ВЯТКИНА ТАТЬЯНА ПАВЛОВНА</span>
       </div>
     </div>
 </section>
 
-<!-- ===== ПОЛОСКА ФАКТОВ ===== -->
-<section class="facts">
-    <div class="container facts__grid">
-      <div class="facts__item">
-        <span class="facts__value">10+</span>
-        <span class="facts__label">лет практики</span>
-      </div>
-      <div class="facts__item">
-        <span class="facts__value">40+</span>
-        <span class="facts__label">проектов</span>
-      </div>
-      <div class="facts__item">
-        <span class="facts__value">5</span>
-        <span class="facts__label">публикаций</span>
-      </div>
-      <div class="facts__item">
-        <span class="facts__value">3</span>
-        <span class="facts__label">награды</span>
-      </div>
-    </div>
-</section>
+
   
 <!-- ===== ОБО МНЕ ===== -->
 <section class="about" id="about">
@@ -173,25 +153,7 @@
 </footer>
 
 <!-- Скрипт перенесен в самый низ, внутрь body -->
-<script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const links = document.querySelectorAll('.project-card');
-      const overlay = document.querySelector('.page-transition-overlay');
-  
-      links.forEach(link => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          const targetUrl = link.getAttribute('href');
-  
-          overlay.classList.add('is-active');
-  
-          setTimeout(() => {
-            window.location.href = targetUrl;
-          }, 400);
-        });
-      });
-    });
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
