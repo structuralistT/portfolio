@@ -120,16 +120,19 @@ ul { list-style: none; }
 
 .hero__top {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  flex-direction: row;       /* Выстраивает элементы строго в горизонтальный ряд */
+  flex-wrap: nowrap;         /* Запрещает перенос элементов на новую строку */
+  justify-content: space-between; /* Разносит их по краям (опционально, можно убрать) */
+  gap: 16px;                 /* Расстояние между ними */
 }
 
 .hero__eyebrow, .hero__meta {
   font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  line-height: 1.6;
+  letter-spacing: 0.08em;
+  line-height: 1.2;          /* Нормальная высота строки */
   color: #666666;
+  white-space: nowrap;       /* Чтобы сам текст внутри тегов не переносился */
 }
 
 .hero__meta {
@@ -633,10 +636,11 @@ ul { list-style: none; }
 
 /* ===== АДАПТИВ ДЛЯ ТЕЛЕФОНОВ (СТРАНИЦА ПРОЕКТА) ===== */
 @media (max-width: 480px) {
-  .body-project .project-nav__back {
-    font-size: 12px;
-    padding: 8px 16px;
+  .hero__eyebrow, .hero__meta {
+    letter-spacing: 0.02em; /* Немного сужаем буквы на телефонах, чтобы точно всё влезло в одну строку */
+    font-size: 10px;        /* Можно слегка уменьшить размер */
   }
+
 
   .project-hero__media {
     height: 40vh;
