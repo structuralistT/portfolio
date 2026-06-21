@@ -278,15 +278,15 @@ ul { list-style: none; }
 .about {
   background: var(--bg-dark);
   color: var(--text-light);
-  padding: 100px 0;
+  padding: 60px 0;
 }
 
-.about__inner { max-width: 760px; }
+.about__inner { max-width: 1060px; }
 
 .about__text {
   font-size: 16px;
-  line-height: 1.6;
-  margin: 24px 0 40px;
+  line-height: 1.1;
+  margin: 16px 0 28px;
 }
 
 .about__contacts {
@@ -311,10 +311,67 @@ ul { list-style: none; }
 }
 
 @media (max-width: 560px) {
-  .projects__grid { grid-template-columns: 1fr; }
   .hero__top { flex-direction: column; gap: 12px; }
   .hero__meta { text-align: left; }
   .hero__actions { flex-direction: column; align-items: flex-start; }
+}
+
+/* ===== АДАПТИВ ДЛЯ ТЕЛЕФОНОВ ===== */
+@media (max-width: 480px) {
+  /* Контакты в шапке переносятся, а не вылезают за экран */
+  .header__contacts-row {
+    flex-wrap: wrap;
+    row-gap: 10px;
+    column-gap: 20px;
+  }
+
+  .header__link {
+    font-size: 11px;
+  }
+
+  /* Меньше воздуха сверху/снизу на маленьком экране */
+  .hero {
+    padding: 20px 0 40px;
+  }
+
+  .hero__title {
+    padding: 40px 0 20px;
+  }
+
+  /* Большой разряд букв на узком экране даёт горизонтальный скролл — сужаем */
+  .hero__title-text {
+    letter-spacing: 0.08em;
+  }
+
+  .hero__subtitle {
+    letter-spacing: 0.15em;
+  }
+
+  .archive {
+    padding: 60px 0;
+  }
+
+  .archive__thumb {
+    width: 72px;
+    height: 72px;
+  }
+
+  .projects {
+    padding: 50px 0;
+  }
+
+  .projects__grid {
+    gap: 12px;
+  }
+
+  .project-card__caption {
+    font-size: 11px;
+    margin-top: 8px;
+  }
+
+  .section-head {
+    margin-bottom: 24px;
+  }
 }
 /* ===== СТИЛИ ДЛЯ СТРАНИЦЫ ПРОЕКТА (ПРЕИМУЩЕСТВЕННО СЕРЫЙ И КОНЦЕПЦИЯ НА ЧЕРНОМ) ===== */
 
@@ -378,6 +435,7 @@ ul { list-style: none; }
   width: 100%;
   height: 100%;
   overflow: hidden;
+  position: relative;
 }
 
 .project-hero__media img {
@@ -565,10 +623,130 @@ ul { list-style: none; }
     gap: 16px;
   }
   .gallery-quad {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
   .project-single-view__grid {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+}
+
+/* ===== АДАПТИВ ДЛЯ ТЕЛЕФОНОВ (СТРАНИЦА ПРОЕКТА) ===== */
+@media (max-width: 480px) {
+  .body-project .project-nav__back {
+    font-size: 12px;
+    padding: 8px 16px;
+  }
+
+  .project-hero__media {
+    height: 40vh;
+  }
+
+  .project-hero__content {
+    padding: 32px 20px;
+  }
+
+  .project-hero__title {
+    margin-bottom: 16px;
+  }
+
+  .project-description {
+    padding: 50px 0;
+  }
+
+  .project-gallery {
+    padding: 36px 0;
+  }
+
+  .project-single-view {
+    padding: 24px 0;
+  }
+
+  .project-footer {
+    padding: 40px 0;
+  }
+}
+
+/* ===== ЛАЙТБОКС: УВЕЛИЧЕНИЕ КАРТИНОК ПОВЕРХ СТРАНИЦЫ ===== */
+/* Находим этот блок и заменяем его содержимое */
+.lightbox-img {
+  cursor: pointer; /* Меняем некрасивую лупу на аккуратный пальчик-указатель */
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease; /* Плавность анимации */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Добавляем новый блок эффекта при наведении */
+.lightbox-img:hover {
+  transform: scale(1.04); /* Картинка плавно увеличивается на 4% прямо в своей рамке */
+}
+ 
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  box-sizing: border-box;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+  z-index: 10000;
+}
+ 
+.lightbox-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+ 
+.lightbox-overlay__image {
+  max-width: 90vw;
+  max-height: 88vh;
+  object-fit: contain;
+  transform: scale(0.94);
+  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+}
+ 
+.lightbox-overlay.active .lightbox-overlay__image {
+  transform: scale(1);
+}
+ 
+.lightbox-overlay__close {
+  position: fixed;
+  top: 28px;
+  right: 36px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--text-light);
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+ 
+.lightbox-overlay__close:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+ 
+@media (max-width: 560px) {
+  .lightbox-overlay {
+    padding: 20px;
+  }
+  .lightbox-overlay__close {
+    top: 16px;
+    right: 16px;
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
   }
 }

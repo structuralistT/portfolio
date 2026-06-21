@@ -1,0 +1,6 @@
+'Jost', sans-serif;
+'XCompany', sans-serif;
+'Zen Dots', sans-serif;
+'Radiotechnika', sans-serif;
+'Gerhaus', sans-serif;
+'SouthGhetto', sans-serif;
