@@ -479,7 +479,7 @@ ul { list-style: none; }
 }
 
 .project-hero__concept-text p {
-  font-size: 14px;
+  font-size: 17px;
   line-height: 1.6;
   color: #cccccc;
   font-weight: 300;
@@ -518,6 +518,8 @@ ul { list-style: none; }
 /* 5. Сетка из 4-х картинок (строго в один ряд) */
 .project-gallery {
   padding: 60px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Тёмная, едва заметная линия для светлого фона */
+  border-top: 1px solid rgba(0, 0, 0, 0.1); /* Светлая линия для темного фона */
 }
 
 .gallery-quad {
@@ -542,6 +544,8 @@ ul { list-style: none; }
 /* 6. Секция панорамного фото (картинка слева, текст справа) */
 .project-single-view {
   padding: 40px 0;
+  background-color: #181818; /* Меняет цвет фона (например, на мягкий светло-серый) */
+  color: #d3d3d3;            /* Меняет цвет текста внутри этого блока на почти черный */
 }
 
 .project-single-view__grid {
@@ -570,13 +574,20 @@ ul { list-style: none; }
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 16px;
-  color: var(--text-dark) !important;
+  color: #d1d1d1 !important;
+}
+
+.gallery-caption-side h4 {
+  font-weight: 570;
+  font-size: 16px;
+  letter-spacing: 0.03em;
+  color: #d1d1d1 !important;
 }
 
 .gallery-caption-side p {
   font-size: 16px;
   line-height: 1.6;
-  color: #111111 !important;
+  color: #d1d1d1 !important;
   font-weight: 300;
 }
 
@@ -626,7 +637,7 @@ ul { list-style: none; }
     gap: 16px;
   }
   .gallery-quad {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
   .project-single-view__grid {
     grid-template-columns: 1fr;
