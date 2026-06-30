@@ -591,6 +591,112 @@ ul { list-style: none; }
   font-weight: 300;
 }
 
+/* ===== СТИЛИ ДЛЯ ВЕБ-ПРИЛОЖЕНИЯ (FRAME-VIBES BANNER) ===== */
+.app-banner {
+  background: #000000 !important; /* Строгий черный фон */
+  color: #ffffff !important;
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.app-banner__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr; /* Картинка чуть шире, текст чуть уже */
+  min-height: 500px;
+  align-items: stretch;
+}
+
+.app-banner__image {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #111;
+}
+
+.app-banner__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.75; /* Деликатное приглушение яркости */
+  transition: transform 0.6s ease;
+}
+
+/* Эффект легкого интерактива при наведении */
+.app-banner:hover .app-banner__image img {
+  transform: scale(1.02);
+}
+
+.app-banner__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 10% 60px 8%;
+  box-sizing: border-box;
+}
+
+.app-banner__tag {
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: #888888;
+  margin-bottom: 16px;
+}
+
+.app-banner__title {
+  font-family: 'XCompany', sans-serif; /* Твой фирменный шрифт заголовков */
+  font-size: clamp(32px, 4vw, 54px);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.app-banner__text {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #cccccc;
+  font-weight: 300;
+  margin-bottom: 36px;
+  max-width: 460px;
+}
+
+/* Кнопка запуска */
+.app-banner__btn {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: 'Jost', sans-serif;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 14px 28px;
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.app-banner__btn:hover {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+/* Мобильная адаптивность */
+@media (max-width: 992px) {
+  .app-banner__grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .app-banner__image {
+    height: 35vh;
+  }
+  .app-banner__content {
+    padding: 40px 24px;
+  }
+}
+
 /* 7. Футер страницы проекта */
 .project-footer {
   padding: 60px 0;
