@@ -1,874 +1,382 @@
-/* ===== ОБЩЕЕ ===== */
+/* =====================================================================
+   STYLE.CSS — общий стиль для страниц отдельных проектов
+   (project1.html, project2.html, project3.html, project4.html, project5.html)
+   Дизайн-токены и логика анимаций взяты из index.html, чтобы страницы
+   выглядели как единая система.
+   ===================================================================== */
+
+/* ===== VARIABLES (те же, что и на главной) ===== */
 :root {
-  --bg-light: #e9e9e9;
-  --bg-dark: #1b1b1b;
-  --text-dark: #111111;
-  --text-light: #f2f2f2;
-  --gap: 24px;
-}
-/* ===== ПОДКЛЮЧЕНИЕ НОВЫХ ШРИФТОВ ===== */
-
-/* 1. Радиотехника */
-@font-face {
-  font-family: 'Radiotechnika';
-  src: url('fonts/ofont.ru_Radiotechnika.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-/* 2. Герхаус */
-@font-face {
-  font-family: 'Gerhaus';
-  src: url('fonts/ofont.ru_Gerhaus.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-/* 3. Саут Гетто */
-@font-face {
-  font-family: 'SouthGhetto';
-  src: url('fonts/ofont.ru_SouthGhetto.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-  font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  color: var(--text-dark);
-  background: var(--bg-light);
-  -webkit-font-smoothing: antialiased;
-}
-
-.container {
-  max-width: 1600px;
-  width: 95%;
-  margin: 0 auto;
-}
-
-a { color: inherit; text-decoration: none; }
-img { display: block; max-width: 100%; }
-ul { list-style: none; }
-
-.section-title {
-  font-weight: 800;
-  font-size: clamp(26px, 3.2vw, 40px);
-  text-transform: uppercase;
-  letter-spacing: -0.01em;
-}
-
-.section-title--light { color: var(--text-light); }
-
-.section-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  margin-bottom: 40px;
-}
-
-.link-underline {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 2px;
-  transition: border-color 0.2s ease;
-}
-
-.link-underline:hover { border-color: var(--text-dark); }
-.link-underline--light:hover { border-color: var(--text-light); }
-
-/* ===== ХЕДЕР ===== */
-.header {
-  background: var(--bg-light);
-  padding: 24px 0;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
-}
-
-/* Очищаем старое позиционирование и выстраиваем ссылки в ровную строку */
-.header__inner {
-  display: flex;
-  justify-content: flex-start; /* Прижимает контакты к левому краю (можно изменить на center) */
-  align-items: center;
-}
-
-.header__contacts-row {
-  display: flex;
-  gap: 32px; /* Расстояние между ссылками */
-}
-
-.header__link {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 400;
-  color: var(--text-dark);
-  transition: opacity 0.2s ease;
-}
-
-.header__link:hover {
-  opacity: 0.6; /* Эффект деликатного затухания при наведении */
-}
-
-/* ===== HERO ===== */
-.hero {
-  background: var(--bg-light);
-  padding: 30px 0 70px;
-}
-
-.hero__top {
-  display: flex;
-  flex-direction: row;       /* Выстраивает элементы строго в горизонтальный ряд */
-  flex-wrap: nowrap;         /* Запрещает перенос элементов на новую строку */
-  justify-content: space-between; /* Разносит их по краям (опционально, можно убрать) */
-  gap: 16px;                 /* Расстояние между ними */
-}
-
-.hero__eyebrow, .hero__meta {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  line-height: 1.2;          /* Нормальная высота строки */
-  color: #666666;
-  white-space: nowrap;       /* Чтобы сам текст внутри тегов не переносился */
-}
-
-.hero__meta {
-  text-align: right;
-}
-
-.hero__title {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 60px 0 30px 0;
-}
-
-/* Изменили: слово стало изящнее, тоньше (weight: 300) и аккуратнее по размеру */
-.hero__title-text {
-  display: block;
-  /* ПРИМЕНЯЕМ ROC GROTESK */
-  font-family: 'Jost', sans-serif;
-  font-weight: 300; 
-  font-size: clamp(42px, 7vw, 110px);
-  line-height: 1.1;
-  text-transform: uppercase;
-  letter-spacing: 0.25em; /* Большой разряд букв для журнального стиля */
-  color: var(--text-dark);
-  transform: translateX(0); /* Минус сдвигает влево, плюс (например, 50px) — вправо */
-}
-
-/* Имя и фамилия под ним */
-.hero__subtitle {
-  display: block;
-  font-weight: 200;
-  font-size: clamp(16px, 1.8vw, 26px);
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  color: var(--text-dark);
-  margin-top: 16px;
-  opacity: 0.8;
-  transform: translateX(0); /* Сдвинет имя вправо на 40 пикселей */
-}
-
-.hero__actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 40px;
-}
-
-/* ===== АРХИВ (черный) ===== */
-.archive {
-  background: var(--bg-dark);
-  color: var(--text-light);
-  padding: 90px 0;
-}
-
-.archive__grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-}
-
-.archive__card {
-  display: flex;
-  gap: 20px;
-}
-
-.archive__thumb {
-  width: 96px;
-  height: 96px;
-  object-fit: cover;
-  flex-shrink: 0;
-  transition: opacity 0.2s ease;
-}
-
-.archive__card:hover .archive__thumb { opacity: 0.7; }
-
-.archive__name {
-  font-weight: 400;
-  font-size: 16px;
-  margin-bottom: 6px;
-}
-
-.archive__meta {
-  font-size: 12px;
-  opacity: 0.6;
-  margin-bottom: 10px;
-}
-
-
-
-/* ===== СЕТКА ПРОЕКТОВ ===== */
-.projects {
-  background: var(--bg-light);
-  padding: 80px 0;
-}
-
-.projects__grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: var(--gap);
-}
-
-.project-card {
-  display: block;
-  text-decoration: none;
-  color: var(--text-dark);
-}
-
-/* Контейнер для картинки, который скрывает всё, что выходит за его пределы */
-.project-card__image {
-  width: 100%;
-  aspect-ratio: 3 / 4;
-  overflow: hidden; /* Обязательно, чтобы зум оставался внутри рамки */
-  background: #e3e3e3;
-}
-
-.project-card__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  /* Плавность изменения трансформации и прозрачности в течение 0.4 сек */
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease; 
-}
-
-.project-card__caption {
-  margin-top: 14px;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  opacity: 0.7;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* ЭФФЕКТ ПРИ НАВЕДЕНИИ КУРСОРA */
-.project-card:hover .project-card__image img {
-  transform: scale(1.05); /* Картинка плавно увеличивается на 5% */
-  opacity: 0.9;            /* Слегка меняется тон */
-}
-
-.project-card:hover .project-card__caption {
-  opacity: 1;              /* Текст становится четче */
-  color: #000000;
-}
-/* ===== ОБО МНЕ ===== */
-.about {
-  background: var(--bg-dark);
-  color: var(--text-light);
-  padding: 60px 0;
-}
-
-.about__inner { max-width: 1060px; }
-
-.about__text {
-  font-size: 16px;
-  line-height: 1.1;
-  margin: 16px 0 28px;
-}
-
-.about__contacts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-}
-
-/* ===== FOOTER ===== */
-.footer {
-  background: var(--bg-dark);
-  color: var(--text-light);
-  padding: 24px 0;
-  font-size: 12px;
-  opacity: 0.5;
-}
-
-/* ===== АДАПТИВ ===== */
-@media (max-width: 900px) {
-  .archive__grid { grid-template-columns: 1fr; gap: 28px; }
-  .projects__grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 560px) {
-  .hero__top { flex-direction: column; gap: 12px; }
-  .hero__meta { text-align: left; }
-  .hero__actions { flex-direction: column; align-items: flex-start; }
-}
-
-/* ===== АДАПТИВ ДЛЯ ТЕЛЕФОНОВ ===== */
-@media (max-width: 480px) {
-  /* Контакты в шапке переносятся, а не вылезают за экран */
-  .header__contacts-row {
-    flex-wrap: wrap;
-    row-gap: 10px;
-    column-gap: 20px;
+    --bg-start: #faf9f7;
+    --bg-end: #f5f3f0;
+    --bg-dark: #0f0f0f;
+    --text: #1a1a1a;
+    --text-secondary: #555;
+    --text-muted: #888;
+    --accent: #b89f7b;
+    --line: rgba(0,0,0,0.06);
+    --line-dark: rgba(255,255,255,0.08);
+    --transition: cubic-bezier(0.25, 0.1, 0.25, 1);
+    --container: 1200px;
+    --radius: 2px;
   }
-
-  .header__link {
-    font-size: 11px;
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  html { scroll-behavior: smooth; }
+  
+  body.body-project {
+    font-family: 'Jost', sans-serif;
+    background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%);
+    background-attachment: fixed;
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
   }
-
-  /* Меньше воздуха сверху/снизу на маленьком экране */
-  .hero {
-    padding: 20px 0 40px;
+  
+  /* лёгкая текстура шума, как на главной */
+  body.body-project::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.018;
+    pointer-events: none;
+    z-index: 9999;
   }
-
-  .hero__title {
-    padding: 40px 0 20px;
+  
+  .container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 40px;
   }
-
-  /* Большой разряд букв на узком экране даёт горизонтальный скролл — сужаем */
-  .hero__title-text {
-    letter-spacing: 0.08em;
+  
+  /* ===== ПЕРЕХОД МЕЖДУ СТРАНИЦАМИ (логика в script.js) ===== */
+  .page-transition-overlay {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    z-index: 9998;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s ease;
   }
-
-  .hero__subtitle {
-    letter-spacing: 0.15em;
-  }
-
-  .archive {
-    padding: 60px 0;
-  }
-
-  .archive__thumb {
-    width: 72px;
-    height: 72px;
-  }
-
-  .projects {
-    padding: 50px 0;
-  }
-
-  .projects__grid {
-    gap: 12px;
-  }
-
-  .project-card__caption {
-    font-size: 11px;
-    margin-top: 8px;
-  }
-
-  .section-head {
-    margin-bottom: 24px;
-  }
-}
-/* ===== СТИЛИ ДЛЯ СТРАНИЦЫ ПРОЕКТА (ПРЕИМУЩЕСТВЕННО СЕРЫЙ И КОНЦЕПЦИЯ НА ЧЕРНОМ) ===== */
-
-/* 1. Основной фон страницы — серый, а текст темный для читаемости */
-.body-project {
-  background: #c7c7c7 !important;
-  color: var(--text-dark) !important;
-}
-
-/* 2. Навигация и кнопка "Назад" (делаем темнее для серого фона) */
-.body-project .project-nav {
-  background: #141414;
-  padding: 20px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-
-
-.body-project .project-nav__back {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Radiotechnika';
-  font-size: 14px;
-  font-weight: 300;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--text-light);
-  text-decoration: none;
-  padding: 10px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 0;
-  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
-}
-
-
-
-.body-project .project-nav__back:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.3);
-  transform: translateX(-4px);
-}
-
-/* 3. Концепция (Hero-блок): Сетка 55vw на 45vw, рендер строго влево */
-.project-hero {
-  background-color: #141414 !important;
-  color: var(--text-light) !important;
-  padding: 0 !important;
-  overflow: hidden;
-  width: 100%;
-}
-
-.project-hero__grid {
-  display: grid;
-  grid-template-columns: 55vw 45vw;
-  min-height: 200px;
-  align-items: stretch;
-}
-
-.project-hero__media {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.project-hero__media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  filter: brightness(0.7); /* 0.7 — это 70% от исходной яркости. Чем меньше цифра, тем темнее рендер */
-}
-
-.project-hero__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 60px 10% 60px 8%;
-  box-sizing: border-box;
-}
-
-.project-hero__meta {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  color: #888888;
-  text-transform: uppercase;
-  margin-bottom: 30px;
-}
-
-.project-hero__title {
-  font-family: 'Gerhaus', sans-serif;
-  font-size: clamp(32px, 4vw, 100px);
-  line-height: 1.1;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  color: #bdbdbd !important;
-  margin-bottom: 24px;
-}
-
-.project-hero__concept-text p {
-  font-size: 17px;
-  line-height: 1.6;
-  color: #cccccc;
-  font-weight: 300;
-  max-width: 480px;
-}
-
-/* 4. Светлый блок описания концепции ниже */
-.project-description {
-  background: var(--bg-light);
-  color: var(--text-dark);
-  padding: 90px 0;
-}
-
-.project-description__grid {
-  display: grid;
-  grid-template-columns: 1fr 2.5fr;
-  gap: 40px;
-}
-
-.project-description__label {
-  font-size: 12px;
-  font-family: monospace;
-  letter-spacing: 0.1em;
-  color: #666666;
-  font-weight: 700;
-}
-
-.project-description__text p {
-  font-size: 18px;
-  line-height: 1.6;
-  font-weight: 300;
-  margin-bottom: 24px;
-  color: #444444 !important;
-}
-
-/* 5. Сетка из 4-х картинок (строго в один ряд) */
-.project-gallery {
-  padding: 60px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Тёмная, едва заметная линия для светлого фона */
-  border-top: 1px solid rgba(0, 0, 0, 0.1); /* Светлая линия для темного фона */
-}
-
-.gallery-quad {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-
-.gallery-quad__item {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  background: #111;
-  overflow: hidden;
-}
-
-.gallery-quad__item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* 6. Секция панорамного фото (картинка слева, текст справа) */
-.project-single-view {
-  padding: 40px 0;
-  background-color: #181818; /* Меняет цвет фона (например, на мягкий светло-серый) */
-  color: #d3d3d3;            /* Меняет цвет текста внутри этого блока на почти черный */
-}
-
-.project-single-view__grid {
-  display: grid;
-  grid-template-columns: 1.8fr 1fr;
-  gap: 40px;
-  align-items: center;
-}
-
-.gallery-side-media {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  background: #111;
-}
-
-.gallery-side-media img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.gallery-caption-side h3 {
-  font-weight: 400;
-  font-size: 20px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  color: #d1d1d1 !important;
-}
-
-.gallery-caption-side h4 {
-  font-weight: 570;
-  font-size: 16px;
-  letter-spacing: 0.03em;
-  color: #d1d1d1 !important;
-}
-
-.gallery-caption-side p {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #d1d1d1 !important;
-  font-weight: 300;
-}
-
-/* ===== СТИЛИ ДЛЯ ВЕБ-ПРИЛОЖЕНИЯ (FRAME-VIBES BANNER) ===== */
-.app-banner {
-  background: #000000 !important; /* Строгий черный фон */
-  color: #ffffff !important;
-  width: 100%;
-  overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.app-banner__grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr; /* Картинка чуть шире, текст чуть уже */
-  min-height: 500px;
-  align-items: stretch;
-}
-
-.app-banner__image {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  background: #111;
-}
-
-.app-banner__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  opacity: 0.75; /* Деликатное приглушение яркости */
-  transition: transform 0.6s ease;
-}
-
-/* Эффект легкого интерактива при наведении */
-.app-banner:hover .app-banner__image img {
-  transform: scale(1.02);
-}
-
-.app-banner__content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 60px 10% 60px 8%;
-  box-sizing: border-box;
-}
-
-.app-banner__tag {
-  font-family: monospace;
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  color: #888888;
-  margin-bottom: 16px;
-}
-
-.app-banner__title {
-  font-family: 'XCompany', sans-serif; /* Твой фирменный шрифт заголовков */
-  font-size: clamp(32px, 4vw, 54px);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  line-height: 1.1;
-}
-
-.app-banner__text {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #cccccc;
-  font-weight: 300;
-  margin-bottom: 36px;
-  max-width: 460px;
-}
-
-/* Кнопка запуска */
-.app-banner__btn {
-  display: inline-block;
-  align-self: flex-start;
-  font-family: 'Jost', sans-serif;
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 14px 28px;
-  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-}
-
-.app-banner__btn:hover {
-  background: #ffffff;
-  color: #000000;
-  border-color: #ffffff;
-}
-
-/* Мобильная адаптивность */
-@media (max-width: 992px) {
-  .app-banner__grid {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-  .app-banner__image {
-    height: 35vh;
-  }
-  .app-banner__content {
-    padding: 40px 24px;
-  }
-}
-
-/* 7. Футер страницы проекта */
-.project-footer {
-  padding: 60px 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  text-align: center;
-  color: #181818;
-}
-
-/* 8. АНИМАЦИЯ ПЕРЕХОДА СТРАНИЦ */
-.page-transition-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--bg-dark);
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.4s ease-in-out;
-}
-
-.page-transition-overlay.active {
-  opacity: 1;
-  pointer-events: all;
-}
-
-/* ===== АДАПТИВНОСТЬ ДЛЯ СТРАНИЦЫ ПРОЕКТА ===== */
-@media (max-width: 992px) {
-  .project-hero__grid {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-  .project-hero__media {
-    height: 50vh;
-  }
-  .project-hero__content {
-    padding: 40px 24px;
-  }
-  .project-description__grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .gallery-quad {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .project-single-view__grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-}
-
-/* ===== АДАПТИВ ДЛЯ ТЕЛЕФОНОВ (СТРАНИЦА ПРОЕКТА) ===== */
-@media (max-width: 480px) {
-  .hero__eyebrow, .hero__meta {
-    letter-spacing: 0.02em; /* Немного сужаем буквы на телефонах, чтобы точно всё влезло в одну строку */
-    font-size: 10px;        /* Можно слегка уменьшить размер */
-  }
-
-
-  .project-hero__media {
-    height: 40vh;
-  }
-
-  .project-hero__content {
-    padding: 32px 20px;
-  }
-
-  .project-hero__title {
-    margin-bottom: 16px;
-  }
-
-
-  .project-description {
-    padding: 50px 0;
-  }
-
-  .project-gallery {
-    padding: 36px 0;
-  }
-
-  .project-single-view {
+  .page-transition-overlay.active { opacity: 1; }
+  
+  /* ===== NAV (шапка страницы проекта) ===== */
+  .project-nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
     padding: 24px 0;
+    transition: all 0.5s var(--transition);
+    border-bottom: 1px solid transparent;
   }
-
+  .project-nav.scrolled {
+    padding: 16px 0;
+    background: rgba(250, 249, 247, 0.82);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    border-bottom-color: var(--line);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.02);
+  }
+  .project-nav__inner { display: flex; justify-content: flex-start; }
+  /* У .container есть max-width и центрирование — на широких экранах это
+     отодвигает кнопку "Назад" от истинного левого края к центру.
+     Для шапки проекта убираем это ограничение, оставляя только отступ. */
+  .project-nav .container {
+    max-width: none;
+    padding: 0 40px;
+  }
+  .project-nav__back {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    text-decoration: none;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.4s var(--transition);
+  }
+  .project-nav__back::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1px;
+    background: var(--accent);
+    transition: width 0.4s var(--transition);
+  }
+  .project-nav__back:hover { color: var(--text); }
+  .project-nav__back:hover::after { width: 100%; }
+  
+  /* ===== PROJECT VIEW (общий контейнер контента) ===== */
+  .project-view {
+    padding-top: 140px;
+  }
+  
+  /* ===== HERO ПРОЕКТА ===== */
+  .project-hero { padding-bottom: 100px; }
+  .project-hero__grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 60px;
+    align-items: stretch;
+    padding: 0 40px 0 0; /* без отступа слева — картинка примыкает к краю экрана */
+  }
+  
+  .project-hero__media {
+    position: relative;
+    overflow: hidden;
+    background: #eae8e5;
+    aspect-ratio: 4/3;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 1s var(--transition) forwards;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.10), 0 8px 20px rgba(0,0,0,0.05);
+  }
+  .project-hero__media img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: zoom-in;
+    transition: transform 1.2s var(--transition), filter 0.8s ease;
+    filter: grayscale(35%) contrast(0.9) brightness(0.8) saturate(0.95);
+  }
+  .project-hero__media:hover img {
+    transform: scale(1.04);
+    filter: grayscale(20%) contrast(1.2) brightness(1.01) saturate(1);
+  }
+  /* лёгкая полупрозрачная плёнка поверх картинки — снижает контраст, без резких пятен */
+  .project-hero__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(250, 249, 247, 0.10);
+    pointer-events: none;
+  }
+  
+  .project-hero__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .project-hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+    opacity: 0;
+    animation: fadeUp 1s 0.1s var(--transition) forwards;
+  }
+  .project-hero__meta span:not(:last-child) {
+    position: relative;
+    padding-right: 16px;
+  }
+  .project-hero__meta span:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: -8px; top: 50%;
+    width: 3px; height: 3px;
+    background: var(--accent);
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .project-hero__title {
+    font-size: clamp(36px, 5vw, 64px);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 1s 0.2s var(--transition) forwards;
+  }
+  
+  .project-hero__concept-text {
+    opacity: 0;
+    animation: fadeUp 1s 0.3s var(--transition) forwards;
+  }
+  .project-hero__concept-text p {
+    font-size: 17px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--text-secondary);
+  }
+  
+  /* ===== GALLERY (сетка 3 / 4 изображений — авто-подстройка) ===== */
+  .project-gallery { padding: 60px 0; }
+  .gallery-quad {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 32px;
+  }
+  .gallery-quad__item {
+    position: relative;
+    overflow: hidden; /* если нужен */
+    filter: drop-shadow(0 10px 24px rgba(0,0,0,0.16)) drop-shadow(0 3px 8px rgba(0,0,0,0.10));
+    background: #eae8e5;
+    aspect-ratio: 4/3;
+    opacity: 0;
+    transform: translateY(40px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.16), 0 3px 8px rgba(0,0,0,0.10);
+    transition: opacity 0.9s var(--transition), transform 0.9s var(--transition);
+    will-change: transform, box-shadow;
+  }
+  .gallery-quad__item.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .gallery-quad__item:nth-child(1) { transition-delay: 0ms; }
+  .gallery-quad__item:nth-child(2) { transition-delay: 100ms; }
+  .gallery-quad__item:nth-child(3) { transition-delay: 200ms; }
+  .gallery-quad__item:nth-child(4) { transition-delay: 300ms; }
+  
+  .gallery-quad__item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: zoom-in;
+    transition: transform 1s var(--transition), filter 0.8s ease;
+    filter: grayscale(8%);
+  }
+  .gallery-quad__item:hover img {
+    transform: scale(1.06);
+    filter: grayscale(0%);
+  }
+  
+  /* ===== SINGLE VIEW (изображение + текст сбоку) ===== */
+  .project-single-view { padding: 60px 0; }
+  .project-single-view__grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s var(--transition), transform 0.9s var(--transition);
+  }
+  .project-single-view__grid.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .gallery-side-media {
+    position: relative;
+    overflow: hidden;
+    background: #eae8e5;
+    aspect-ratio: 3/2;
+    box-shadow: 0 10px 24px rgba(0,0,0,0.16), 0 3px 8px rgba(0,0,0,0.10);
+  }
+  .gallery-side-media img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    cursor: zoom-in;
+    transition: transform 1.1s var(--transition), filter 0.8s ease;
+    filter: grayscale(8%);
+  }
+  .gallery-side-media:hover img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+  }
+  
+  .gallery-caption-side h3 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  .gallery-caption-side p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: var(--text-secondary);
+  }
+  
+  /* ===== FOOTER ===== */
   .project-footer {
-    padding: 40px 0;
+    padding: 40px 0 60px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    margin-top: 40px;
   }
-}
-
-/* ===== ЛАЙТБОКС: УВЕЛИЧЕНИЕ КАРТИНОК ПОВЕРХ СТРАНИЦЫ ===== */
-/* Находим этот блок и заменяем его содержимое */
-.lightbox-img {
-  cursor: pointer; /* Меняем некрасивую лупу на аккуратный пальчик-указатель */
-  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease; /* Плавность анимации */
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Добавляем новый блок эффекта при наведении */
-.lightbox-img:hover {
-  transform: scale(1.04); /* Картинка плавно увеличивается на 4% прямо в своей рамке */
-}
- 
-.lightbox-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(10, 10, 10, 0.92);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 48px;
-  box-sizing: border-box;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.35s ease;
-  z-index: 10000;
-}
- 
-.lightbox-overlay.active {
-  opacity: 1;
-  pointer-events: all;
-}
- 
-.lightbox-overlay__image {
-  max-width: 90vw;
-  max-height: 88vh;
-  object-fit: contain;
-  transform: scale(0.94);
-  transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
-}
- 
-.lightbox-overlay.active .lightbox-overlay__image {
-  transform: scale(1);
-}
- 
-.lightbox-overlay__close {
-  position: fixed;
-  top: 28px;
-  right: 36px;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  color: var(--text-light);
-  font-size: 22px;
-  font-weight: 300;
-  line-height: 1;
-  cursor: pointer;
-  transition: background 0.3s ease, border-color 0.3s ease;
-}
- 
-.lightbox-overlay__close:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.6);
-}
- 
-@media (max-width: 560px) {
+  .project-footer p {
+    font-size: 12px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+  
+  /* ===== LIGHTBOX (стили нужны для script.js) ===== */
   .lightbox-overlay {
-    padding: 20px;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.92);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    backdrop-filter: blur(8px);
   }
+  .lightbox-overlay.active { opacity: 1; pointer-events: all; }
+  .lightbox-overlay__image {
+    max-width: 90vw;
+    max-height: 85vh;
+    object-fit: contain;
+    transform: scale(0.95);
+    transition: transform 0.5s var(--transition);
+  }
+  .lightbox-overlay.active .lightbox-overlay__image { transform: scale(1); }
   .lightbox-overlay__close {
-    top: 16px;
-    right: 16px;
-    width: 38px;
-    height: 38px;
-    font-size: 18px;
+    position: absolute;
+    top: 32px; right: 32px;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 40px;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+    z-index: 10001;
   }
-}
+  .lightbox-overlay__close:hover { opacity: 1; }
+  
+  /* ===== KEYFRAMES ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .container { padding: 0 24px; }
+    .project-nav .container { padding: 0 24px; }
+    .project-view { padding-top: 110px; }
+    .project-hero__grid { grid-template-columns: 1fr; gap: 32px; padding: 0; }
+    .project-hero__content { padding: 0 24px; }
+    .project-hero__media { aspect-ratio: 16/10; }
+    .project-single-view__grid { grid-template-columns: 1fr; gap: 24px; }
+    .gallery-side-media { aspect-ratio: 16/10; }
+    .project-gallery, .project-single-view { padding: 40px 0; }
+    .gallery-quad { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+  }
+  
+  @media (max-width: 600px) {
+    .project-hero__title { font-size: 32px; }
+    .gallery-quad { grid-template-columns: 1fr 1fr; gap: 14px; }
+  }

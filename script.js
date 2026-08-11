@@ -39,7 +39,7 @@ function initLightbox() {
 
   closeBtn.addEventListener('click', closeLightbox);
 
-  // Клик по тёмному фону (не по самой картинке) закрывает лайтбокс
+  // кликаю прикольно чтобы
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) closeLightbox();
   });
@@ -50,6 +50,45 @@ function initLightbox() {
       closeLightbox();
     }
   });
+}
+
+// ===== "СТЕКЛЯННАЯ" ШАПКА ПРИ СКРОЛЛЕ (для страниц проектов) =====
+// Аналог поведения .header на главной, но для .project-nav.
+function initProjectNavScroll() {
+  const nav = document.querySelector('.project-nav');
+  if (!nav) return;
+
+  const toggle = () => {
+    if (window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  };
+
+  toggle();
+  window.addEventListener('scroll', toggle);
+}
+
+// ===== SCROLL REVEAL: плавное появление галерей при прокрутке =====
+// Работает на карточках галереи и блоках "изображение + текст"
+// страницы проекта. HTML менять не нужно — селекторы уже существуют.
+function initScrollReveal() {
+  const targets = document.querySelectorAll(
+    '.gallery-quad__item, .project-single-view__grid'
+  );
+  if (!targets.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.08,
+    rootMargin: '0px 0px -60px 0px'
+  });
+
+  targets.forEach(el => observer.observe(el));
 }
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -77,4 +116,6 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   initLightbox();
+  initProjectNavScroll();
+  initScrollReveal();
 });
