@@ -7,79 +7,70 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="project.css">
 </head>
-<body class="body-project"> 
+<body class="body-project">
 
-    <!-- Плашка находится строго внутри body -->
     <div class="page-transition-overlay"></div>
 
-    <nav class="project-nav">
+    <nav class="project-nav project-nav--over-hero">
         <div class="container project-nav__inner">
             <a href="index.html#projects" class="project-nav__back">← Назад к проектам</a>
         </div>
     </nav>
 
     <main class="project-view">
-        
-        <section class="project-hero">
-            <div class="project-hero__grid">
-                <div class="project-hero__media">
-                    <img class="lightbox-img" src="projects/03main_render.jpg" alt="Главный рендер ЖК Силуэт" onerror="this.src='https://placehold.co/1200x900/1a1a1a/333333?text=Main+Render'">
-                </div>
-                
-                <div class="project-hero__content">
-                    <div class="project-hero__meta">
-                        <span>Курсовая работа // 2025</span>
-                        <span>REVIT // 3ds Max // PHOTOSHOP</span>
-                    </div>
-                    <h1 class="project-hero__title">Дом мастера</h1>
-                    <div class="project-hero__concept-text">
-                        <p>Big Sur House. Field Architecture. Воссоздание и анализ объекта. Разбор концепции бережной интеграции архитектуры в природный контекст. Проект исследует взаимодействие массивных каменных опор с легким остекленным объемом, парящим над руслом горного потока.</p>
-                        </p>
-                        <p style="margin-top: 15px; font-size: 14px; color: #666;">
-                            Прототип: 
-                            <a href="https://www.fieldarchitecture.com/project/big-sur-house" 
-                               target="_blank" 
-                               rel="noopener noreferrer" 
-                               style="color: #e7e7e7; text-decoration: underline; font-weight: 500; transition: color 0.2s;"
-                               onmouseover="this.style.color='#e7e7e7'" 
-                               onmouseout="this.style.color='#666'">
-                               Field Architecture
-                            </a>
-                        </p>
-                    </div>
 
-                    
+        <section class="project-hero-full">
+            <img class="hero-image lightbox-img" src="projects/03main_render.jpg" alt="Дом мастера – главный рендер" onerror="this.src='https://placehold.co/1600x900/f5f5f5/aaa?text=Main+Render'">
+            <div class="hero-overlay">
+                <div class="hero-meta">
+                    <span>Курсовая работа // 2025</span>
+                    <span>REVIT // 3ds Max // PHOTOSHOP</span>
                 </div>
+                <h1 class="hero-title">Дом мастера</h1>
+                <p class="hero-description">
+                    Воссоздание и анализ Big Sur House: массивные каменные опоры и лёгкий остеклённый объём, парящий над руслом горного потока.
+                </p>
             </div>
         </section>
 
         <section class="project-gallery">
             <div class="container">
-                <div class="gallery-quad">
-                    <div class="gallery-quad__item"><img class="lightbox-img" src="projects/длорпа.jpg" alt="" onerror="this.src='https://placehold.co/800x600/1a1a1a/333333?text=01'"></div>
-                    <div class="gallery-quad__item"><img class="lightbox-img" src="projects/шгорт.jpg" alt="" onerror="this.src='https://placehold.co/800x600/1a1a1a/333333?text=02'"></div>
-                    <div class="gallery-quad__item"><img class="lightbox-img" src="projects/оуудаа.jpg" alt="" onerror="this.src='https://placehold.co/800x600/1a1a1a/333333?text=03'"></div>
-                    <div class="gallery-quad__item"><img class="lightbox-img" src="projects/жждлорииио.jpg" alt="" onerror="this.src='https://placehold.co/800x600/1a1a1a/333333?text=04'"></div>
+                <div class="gallery-masonry">
+                    <div class="gallery-item gallery-item--wide">
+                        <img class="lightbox-img" src="projects/длорпа.jpg" alt="Рендер 01" onerror="this.src='https://placehold.co/800x600/f5f5f5/aaa?text=01'">
+                    </div>
+                    <div class="gallery-item gallery-item--tall">
+                        <img class="lightbox-img" src="projects/шгорт.jpg" alt="Рендер 02" onerror="this.src='https://placehold.co/600x800/f5f5f5/aaa?text=02'">
+                    </div>
+                    <div class="gallery-item">
+                        <img class="lightbox-img" src="projects/оуудаа.jpg" alt="Рендер 03" onerror="this.src='https://placehold.co/600x400/f5f5f5/aaa?text=03'">
+                    </div>
+                    <div class="gallery-item">
+                        <img class="lightbox-img" src="projects/жждлорииио.jpg" alt="Рендер 04" onerror="this.src='https://placehold.co/600x400/f5f5f5/aaa?text=04'">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="project-single-view">
+        <section class="project-concept-block">
             <div class="container">
-                <div class="project-single-view__grid">
-                    <div class="gallery-side-media">
-                        <img class="lightbox-img" src="projects/подача.jpg" alt="" onerror="this.src='https://placehold.co/1000x650/1a1a1a/333333?text=View+I'">
+                <div class="concept-grid">
+                    <div class="media">
+                        <img class="lightbox-img" src="projects/подача.jpg" alt="Конструктивно-графическое исследование" onerror="this.src='https://placehold.co/1000x650/f5f5f5/aaa?text=View+I'">
                     </div>
-                    <div class="gallery-caption-side">
+                    <div class="text">
                         <h3>01 / Конструктивно-графическое исследование</h3>
                         <p>Проект выполнен как глубокий разбор тектонических принципов Field Architecture. На планах и продольном разрезе продемонстрирована четкая координация конструктивных осей, раскрыта логика опирания большепролетных деревянных конструкций кровли и проработана детальная пластика фасадов с учетом выноса карнизов и панорамного остекления.</p>
+                        <p>Прототип: <a href="https://www.fieldarchitecture.com/project/big-sur-house" target="_blank" rel="noopener noreferrer">Field Architecture</a></p>
                     </div>
                 </div>
             </div>
         </section>
-        
- 
+
+    </main>
+
     <footer class="project-footer">
         <div class="container">
             <p>© 2026 // РАЗДЕЛ ПРОЕКТА // ДОМ МАСТЕРА</p>
@@ -87,6 +78,5 @@
     </footer>
 
     <script src="script.js"></script>
-
 </body>
 </html>

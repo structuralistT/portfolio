@@ -7,85 +7,89 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@100;200;300;400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="project.css">
 </head>
-<body class="body-project"> 
+<body class="body-project">
 
-    <!-- Плашка находится строго внутри body -->
+    <!-- Плашка перехода -->
     <div class="page-transition-overlay"></div>
 
-    <nav class="project-nav">
+    <!-- Навбар — фиксированный, поверх hero -->
+    <nav class="project-nav project-nav--over-hero">
         <div class="container project-nav__inner">
             <a href="index.html#projects" class="project-nav__back">← Назад к проектам</a>
         </div>
     </nav>
 
     <main class="project-view">
-        
-        <section class="project-hero">
-            <div class="project-hero__grid">
-                <div class="project-hero__media">
-                    <img class="lightbox-img" src="projects/01main_render.jpg" alt="Главный рендер ЖК Силуэт" onerror="this.src='https://placehold.co/1200x900/1a1a1a/333333?text=Main+Render'">
+
+        <!-- ===== FULL‑WIDTH HERO ===== -->
+        <section class="project-hero-full">
+            <img class="hero-image lightbox-img" src="projects/01main_render.jpg" alt="Дом рыбака – главный рендер" onerror="this.src='https://placehold.co/1600x900/f5f5f5/aaa?text=Main+Render'">
+            <div class="hero-overlay">
+                <div class="hero-meta">
+                    <span>Курсовая работа // 2026</span>
+                    <span>REVIT // 3ds Max // PHOTOSHOP</span>
                 </div>
-                
-                <div class="project-hero__content">
-                    <div class="project-hero__meta">
-                        <span>Курсовая работа // 2026</span>
-                        <span>REVIT // 3ds Max // PHOTOSHOP</span>
-                    </div>
-                    
-                    <h1 class="project-hero__title">Дом рыбака</h1>
-                    
-                    <div class="project-hero__concept-text">
-                        <p>Архитектурный облик построен на эффекте полного слияния с природой. Благодаря консольному выносу здания над водой и огромным окнам в пол, из комнат открывается панорамный вид на озеро, а само пространство кажется больше. Строгий ритм фасада, где глухая деревянная отделка чередуется со стеклом, не только скрывает приватные зоны от посторонних глаз, но и делит дом на уютную спальню и открытую гостиную.</p>
-                    </div>
-                </div>
+                <h1 class="hero-title">Дом рыбака</h1>
+                <p class="hero-description">
+                    Консольный вынос над водой, панорамное остекление и ритм деревянных панелей создают диалог с озером.
+                </p>
             </div>
         </section>
 
+        <!-- ===== ГАЛЕРЕЯ (рендеры) ===== -->
         <section class="project-gallery">
             <div class="container">
-                <div class="gallery-quad">
-                    <div class="gallery-quad__item"><img class="lightbox-img" src="projects/01render_1.jpg" alt="" onerror="this.src='https://placehold.co/800x600/1a1a1a/333333?text=01'"></div>
-                    <div class="gallery-quad__item"><img class="lightbox-img" src="projects/01render_2.jpg" alt="" onerror="this.src='https://placehold.co/800x600/1a1a1a/333333?text=02'"></div>
-                    <div class="gallery-quad__item"><img class="lightbox-img" src="projects/01render_3.jpg" alt="" onerror="this.src='https://placehold.co/800x600/1a1a1a/333333?text=03'"></div>
+                <div class="gallery-masonry">
+                    <div class="gallery-item gallery-item--wide">
+                        <img class="lightbox-img" src="projects/01render_1.jpg" alt="Вид с воды" onerror="this.src='https://placehold.co/800x600/f5f5f5/aaa?text=01'">
+                    </div>
+                    <div class="gallery-item gallery-item--tall">
+                        <img class="lightbox-img" src="projects/01render_2.jpg" alt="Интерьер гостиной" onerror="this.src='https://placehold.co/600x800/f5f5f5/aaa?text=02'">
+                    </div>
+                    <div class="gallery-item">
+                        <img class="lightbox-img" src="projects/01render_3.jpg" alt="Фасад" onerror="this.src='https://placehold.co/600x400/f5f5f5/aaa?text=03'">
+                    </div>
+                    <div class="gallery-item">
+                        <img class="lightbox-img" src="projects/01view.jpg" alt="Вид из спальни" onerror="this.src='https://placehold.co/600x400/f5f5f5/aaa?text=04'">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="project-single-view">
+        <!-- ===== БЛОК С КОНЦЕПЦИЕЙ ===== -->
+        <section class="project-concept-block">
             <div class="container">
-                <div class="project-single-view__grid">
-                    <div class="gallery-side-media">
-                        <img class="lightbox-img" src="projects/01view.jpg" alt="" onerror="this.src='https://placehold.co/1000x650/1a1a1a/333333?text=View+I'">
+                <div class="concept-grid">
+                    <div class="media">
+                        <img class="lightbox-img" src="projects/01view.jpg" alt="Вид из спальни" onerror="this.src='https://placehold.co/1000x650/f5f5f5/aaa?text=View+I'">
                     </div>
-                    <div class="gallery-caption-side">
+                    <div class="text">
                         <h3>01 / КОНЦЕПЦИЯ</h3>
-                        <p>Конструктивное решение: стоечно-балочная система на металлических сваях адаптирует здание под крутой уклон берегового рельефа. <p></p> Планировочная логика: чередование глухих деревянных панелей и панорамных окон четко разделяет внутреннее пространство на приватную зону спален и открытую общую гостиную.</p>
+                        <p>Конструктивное решение: стоечно-балочная система на металлических сваях адаптирует здание под крутой уклон берегового рельефа.</p>
+                        <p>Планировочная логика: чередование глухих деревянных панелей и панорамных окон четко разделяет внутреннее пространство на приватную зону спален и открытую общую гостиную.</p>
                     </div>
                 </div>
             </div>
         </section>
-        
-        <section class="project-gallery">
+
+        <!-- ===== ЧЕРТЕЖИ ===== -->
+        <section class="project-drawings">
             <div class="container">
-                <div class="gallery-quad">
-                    <div class="gallery-quad__item"><img class="lightbox-img" src="draws/01draw1.jpg" alt="" onerror="this.src='https://placehold.co/800x600/1a1a1a/333333?text=05'"></div>
-                    <div class="gallery-quad__item"><img class="lightbox-img" src="draws/01draw2.jpg" alt="" onerror="this.src='https://placehold.co/800x600/1a1a1a/333333?text=06'"></div>
-                    <div class="gallery-quad__item"><img class="lightbox-img" src="draws/01draw3.jpg" alt="" onerror="this.src='https://placehold.co/800x600/1a1a1a/333333?text=07'"></div>
-                    <div class="gallery-quad__item"><img class="lightbox-img" src="draws/01draw4.jpg" alt="" onerror="this.src='https://placehold.co/800x600/1a1a1a/333333?text=08'"></div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="project-single-view">
-            <div class="container">
-                <div class="project-single-view__grid">
-                    <div class="gallery-side-media">
-                        <img class="lightbox-img" src="draws/Gemini_Generated_Image_7c3a9c7c3a9c7c3a.jpg" alt="" onerror="this.src='https://placehold.co/1000x650/1a1a1a/333333?text=View+II'">
+                <h2 class="section-title">Чертежи</h2>
+                <div class="gallery-masonry">
+                    <div class="gallery-item">
+                        <img class="lightbox-img" src="draws/01draw1.jpg" alt="План" onerror="this.src='https://placehold.co/600x400/f5f5f5/aaa?text=План'">
                     </div>
-                    <div class="gallery-caption-side">
-                        <h3>02 / Генеральный план</h3>
-                        <p>Консольная посадка объекта обеспечивает максимальное сохранение ландшафта, открывая прямой выход к воде, что формирует уникальный сценарий взаимодействия архитектуры с природной средой.</p>
+                    <div class="gallery-item gallery-item--wide">
+                        <img class="lightbox-img" src="draws/01draw2.jpg" alt="Разрез" onerror="this.src='https://placehold.co/800x400/f5f5f5/aaa?text=Разрез'">
+                    </div>
+                    <div class="gallery-item">
+                        <img class="lightbox-img" src="draws/01draw3.jpg" alt="Фасад" onerror="this.src='https://placehold.co/600x400/f5f5f5/aaa?text=Фасад'">
+                    </div>
+                    <div class="gallery-item">
+                        <img class="lightbox-img" src="draws/01draw4.jpg" alt="Схема" onerror="this.src='https://placehold.co/600x400/f5f5f5/aaa?text=Схема'">
                     </div>
                 </div>
             </div>
@@ -100,6 +104,5 @@
     </footer>
 
     <script src="script.js"></script>
-
 </body>
 </html>

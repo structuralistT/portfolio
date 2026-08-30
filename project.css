@@ -1,0 +1,335 @@
+/* ========== PROJECT PAGE LAYOUT (shared) ========== */
+
+html:has(.body-project)::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    background: transparent;
+}
+
+html:has(.body-project)::-webkit-scrollbar-track {
+    background: #f5f5f5;
+}
+
+html:has(.body-project)::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+html:has(.body-project)::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+
+html:has(.body-project) {
+    scrollbar-width: thin;
+    scrollbar-color: #ccc #f5f5f5;
+}
+
+.body-project:has(.project-nav--over-hero) .project-view {
+    padding-top: 0;
+}
+
+/* ===== FULL-WIDTH HERO ===== */
+.project-hero-full {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    min-height: 500px;
+    overflow: hidden;
+    background: #0a0a0a;
+}
+
+.project-hero-full .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1);
+    transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-hero-full:hover .hero-image {
+    transform: scale(1.035);
+}
+
+.project-hero-full .hero-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px 50px 50px;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.55) 70%);
+    color: #fff;
+}
+
+.project-hero-full .hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 10px;
+}
+
+.project-hero-full .hero-title {
+    font-size: clamp(32px, 6vw, 60px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    color: #fff;
+}
+
+.project-hero-full .hero-description {
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 700px;
+}
+
+/* ===== MASONRY GALLERY ===== */
+.gallery-masonry {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 260px;
+    gap: 16px;
+    margin: 40px 0;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 6px;
+    background: #f5f5f5;
+    border: 1px solid #eee;
+    cursor: zoom-in;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform: scale(1);
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.04);
+}
+
+.gallery-item--wide {
+    grid-column: span 2;
+}
+
+.gallery-item--tall {
+    grid-row: span 2;
+}
+
+.gallery-item--big {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+/* ===== CONCEPT BLOCK ===== */
+.project-concept-block {
+    padding: 60px 0 40px;
+}
+
+.concept-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 48px;
+    align-items: start;
+}
+
+.concept-grid .media {
+    overflow: hidden;
+    border: 1px solid var(--line, #e0e0e0);
+    background: #f5f5f5;
+    cursor: zoom-in;
+}
+
+.concept-grid .media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: scale(1);
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.concept-grid .media:hover img {
+    transform: scale(1.035);
+}
+
+.concept-grid .text {
+    padding-top: 8px;
+}
+
+.concept-grid .text h3 {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #6b6b6b;
+    margin-bottom: 20px;
+}
+
+.concept-grid .text h4 {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 18px 0 8px;
+    color: #222;
+}
+
+.concept-grid .text p {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: #444;
+    margin-bottom: 16px;
+}
+
+.concept-grid .text a {
+    color: #333;
+    text-underline-offset: 3px;
+    transition: color 0.3s ease;
+}
+
+.concept-grid .text a:hover {
+    color: #111;
+}
+
+/* ===== DRAWINGS ===== */
+.project-drawings {
+    padding: 60px 0;
+    border-top: 1px solid var(--line, #e0e0e0);
+    border-bottom: 1px solid var(--line, #e0e0e0);
+    margin: 60px 0;
+}
+
+.section-title {
+    font-size: 1.4rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 32px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 12px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .project-hero-full {
+        height: 60vh;
+        min-height: 400px;
+    }
+
+    .project-hero-full .hero-overlay {
+        padding: 30px 30px 40px;
+    }
+
+    .concept-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .concept-grid .media {
+        order: -1;
+    }
+
+    .gallery-masonry {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 200px;
+    }
+}
+
+@media (max-width: 600px) {
+    .project-nav__inner {
+        padding: 7px 16px;
+    }
+
+    .project-hero-full {
+        height: 50vh;
+        min-height: 300px;
+    }
+
+    .project-hero-full .hero-overlay {
+        padding: 20px 20px 30px;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.7) 60%);
+    }
+
+    .project-hero-full .hero-title {
+        font-size: 24px;
+    }
+
+    .project-hero-full .hero-description {
+        font-size: 0.95rem;
+    }
+
+    .project-hero-full .hero-meta {
+        font-size: 10px;
+        gap: 12px;
+    }
+
+    .gallery-masonry {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 130px;
+        gap: 10px;
+    }
+
+    .gallery-item--wide,
+    .gallery-item--big {
+        grid-column: span 2;
+    }
+
+    .gallery-item--tall {
+        grid-row: span 1;
+    }
+
+    .concept-grid .text h3 {
+        font-size: 10px;
+    }
+
+    .concept-grid .text p {
+        font-size: 14px;
+    }
+
+    .section-title {
+        font-size: 1.1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-hero-full .hero-image,
+    .gallery-item img,
+    .concept-grid .media img {
+        transition: none;
+    }
+
+    .project-hero-full:hover .hero-image,
+    .gallery-item:hover img,
+    .concept-grid .media:hover img {
+        transform: none;
+    }
+}
+
+/* ===== СТИЛИ ФИЛЬТРА ДЛЯ ГАЛЕРЕИ ПРОЕКТА ===== */
+
+.project-gallery .gallery-item img {
+    /* Значения по умолчанию: 
+       saturate: 100% (норма), <100% (менее насыщенно), >100% (более насыщенно)
+       brightness: 100% (норма), <100% (темнее), >100% (светлее)
+       contrast: регулировка контрастности для точной подгонки экспозиции
+    */
+    filter: saturate(40%) brightness(110%) contrast(120%);
+    transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), 
+                filter 0.5s ease;
+}
+
+/* Эффект сброса или изменения фильтра при наведении на карточку */
+.project-gallery .gallery-item:hover img {
+    filter: saturate(100%) brightness(100%) contrast(100%);
+}

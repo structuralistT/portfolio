@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Portfolio — Landscape Architecture</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Jost:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <section class="hero">
+        <div class="container">
+            <div class="title-grid">
+                <span>P</span><span>O</span><span>R</span>
+                <span>T</span><span>F</span><span>O</span>
+                <span>L</span><span>I</span><span>O</span>
+            </div>
+
+            <p class="subtitle">Landscape Architecture</p>
+
+            <div class="timeline">
+                <span class="year">2021</span>
+                <span class="line"></span>
+                <span class="year">2023</span>
+            </div>
+        </div>
+
+        <div class="scroll-hint">Scroll</div>
+    </section>
+
+    <main class="projects">
+
+        <article class="project">
+            <div class="sheet">
+                <div class="num-box"><div class="num">01</div></div>
+                <div class="image-box"></div>
+                <div class="text-box">
+                    <h2>Название проекта</h2>
+                    <div class="desc">
+                        описание<br>
+                        описание<br>
+                        тут просто текст
+                    </div>
+                </div>
+                <div class="footer-strip">
+                    <span class="tag">Архитектурный проект</span>
+                    <span class="page">01 / 05</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="project">
+            <div class="sheet">
+                <div class="num-box"><div class="num">02</div></div>
+                <div class="image-box"></div>
+                <div class="text-box">
+                    <h2>Название проекта</h2>
+                    <div class="desc">
+                        описание<br>
+                        описание<br>
+                        тут просто текст
+                    </div>
+                </div>
+                <div class="footer-strip">
+                    <span class="tag">Архитектурный проект</span>
+                    <span class="page">02 / 05</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="project">
+            <div class="sheet">
+                <div class="num-box"><div class="num">03</div></div>
+                <div class="image-box"></div>
+                <div class="text-box">
+                    <h2>Название проекта</h2>
+                    <div class="desc">
+                        описание<br>
+                        описание<br>
+                        тут просто текст
+                    </div>
+                </div>
+                <div class="footer-strip">
+                    <span class="tag">Архитектурный проект</span>
+                    <span class="page">03 / 05</span>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+</body>
+</html>
