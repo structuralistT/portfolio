@@ -666,15 +666,21 @@ body {
     position: fixed;
     inset: 0;
     background: #fff;
-    z-index: 9999;
+    z-index: 10000;
     pointer-events: none;
     opacity: 0;
-    transition: opacity 0.5s ease;
+    transition: opacity 0.45s ease;
 }
 
 .page-transition-overlay.is-active {
     opacity: 1;
-    pointer-events: all;
+    pointer-events: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .page-transition-overlay {
+        display: none;
+    }
 }
 
 /* ========== PROJECT NAV & BACK BUTTON ========== */

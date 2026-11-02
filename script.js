@@ -18,23 +18,49 @@ if (prefersReducedMotion || !('IntersectionObserver' in window)) {
 }
 
 /* ========== PAGE TRANSITION ========== */
-document.querySelectorAll('a[href^="project"]').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-        var href = this.getAttribute('href');
-        if (href && href.endsWith('.html')) {
-            e.preventDefault();
-            var overlay = document.querySelector('.page-transition-overlay');
-            if (overlay) {
-                overlay.classList.add('is-active');
-                setTimeout(function() {
-                    window.location.href = href;
-                }, 400);
-            } else {
-                window.location.href = href;
-            }
-        }
+(function () {
+    var overlay = document.querySelector('.page-transition-overlay');
+    if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'page-transition-overlay';
+        document.body.insertBefore(overlay, document.body.firstChild);
+    }
+
+    var duration = 450;
+    var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    requestAnimationFrame(function () {
+        overlay.classList.remove('is-active');
     });
-});
+
+    function isInternalPage(href) {
+        if (!href) return false;
+        var path = href.split('#')[0];
+        return /^project\d+\.html$/.test(path) || path === 'index.html';
+    }
+
+    document.querySelectorAll('a[href]').forEach(function (link) {
+        var href = link.getAttribute('href');
+        if (!isInternalPage(href)) return;
+
+        link.setAttribute('target', '_self');
+
+        link.addEventListener('click', function (e) {
+            if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+            e.preventDefault();
+
+            if (prefersReduced) {
+                window.location.href = href;
+                return;
+            }
+
+            overlay.classList.add('is-active');
+            setTimeout(function () {
+                window.location.href = href;
+            }, duration);
+        });
+    });
+})();
 
 /* ========== PROJECT NAV ON SCROLL ========== */
 (function () {
