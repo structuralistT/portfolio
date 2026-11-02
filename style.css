@@ -240,6 +240,7 @@ body {
 .about-row--tools {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px; /* Единый отступ вместо жестких рамок */
 }
 
 .tools-group {
@@ -287,6 +288,92 @@ body {
 
 .tools-list li:last-child {
     border-bottom: none;
+}
+
+/* ========== EXPERIENCE ========== */
+.experience {
+    padding: 100px 0;
+    border-bottom: 1px solid var(--line, #111);
+    font-family: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+    color: #111;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.experience-item {
+    padding: 32px 40px 40px 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+}
+
+.experience-item:nth-child(odd) {
+    padding-right: 40px;
+    border-right: 1px solid var(--line);
+}
+
+.experience-item:nth-child(even) {
+    padding-left: 40px;
+    padding-right: 0;
+}
+
+/* Индекс (01, 02...) в стиле сайта */
+.experience-item .tools-index {
+    display: block;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: #6b6b6b;
+    margin-bottom: 10px;
+}
+
+/* Заголовок карточки опыта (единый шрифт и стиль) */
+.experience-item .tools-title {
+    font-size: clamp(18px, 2vw, 22px);
+    font-weight: 500;
+    text-transform: none; /* Убираем капслок, если он там был */
+    letter-spacing: -0.01em;
+    color: #111;
+    margin-bottom: 16px;
+}
+
+/* Текст внутри карточки опыта */
+.experience-item p {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.75;
+    color: #444;
+    max-width: 520px;
+}
+
+/* Очистка границ для сетки */
+.experience-item:last-child:nth-child(odd) {
+    border-right: none;
+}
+
+.experience-item:nth-last-child(-n+2) {
+    border-bottom: none;
+}
+
+@media (max-width: 720px) {
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-item,
+    .experience-item:nth-child(odd),
+    .experience-item:nth-child(even) {
+        padding: 24px 0;
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+    }
+
+    .experience-item:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
 }
 
 /* ========== PROJECTS GRID (ASYMMETRIC ARCHITECTURAL BENTO) ========== */
@@ -1102,3 +1189,4 @@ body {
 }
 
 }
+
